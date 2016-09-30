@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_pallete_white_full">#FFFFFF</color>
+    <color name="common_pallete_white_full_transparency">#E6FFFFFF</color>
+    <color name="common_pallete_separator_gray">#d1d1d1</color>
+    <color name="common_pallete_text_gray">#ACACAC</color>
+    <color name="common_pallete_text_black">#555555</color>
+    <color name="common_pallete_stock_text_gray">#808080</color>
+    <color name="common_pallete_disabled_gray_button">#808080</color>
+    <color name="common_pallete_disabled_gray_text">#ACACAC</color>
+    <color name="common_pallete_hint_gray">#808080</color>
+    <color name="common_pallete_stock_background">#fff3f3f3</color>
+    <color name="common_pallete_error_red">#E45F5F</color>
+    <color name="common_stock_background_white">#FFFFFF</color>
+    <color name="common_stock_background_gray">#F3F3F3</color>
+    <color name="common_pallete_chip_text">#424242</color>
+    <color name="common_pallete_chip_background">#e0e0e0</color>
+
+    <color name="holo_yellow_primary">#FFEB3B</color>
+    <color name="holo_yellow_primary_dark">#FBC02D</color>
+    <color name="holo_yellow_accent">#FFEE58</color>
+    <color name="holo_yellow_ripple">#FFEE58</color>
+
+    <color name="holo_red_primary">#E91E63</color>
+    <color name="holo_red_primary_dark">#e0e0e0</color>
+    <color name="holo_red_accent">#e0e0e0</color>
+    <color name="holo_red_ripple">#FFEE58</color>
+
+    <color name="holo_purple_primary">#9C27B0</color>
+    <color name="holo_purple_primary_dark">#e0e0e0</color>
+    <color name="holo_purple_accent">#e0e0e0</color>
+    <color name="holo_purple_ripple">#FFEE58</color>
+
+    <color name="holo_blue_primary">#2196F3</color>
+    <color name="holo_blue_primary_dark">#e0e0e0</color>
+    <color name="holo_blue_accent">#e0e0e0</color>
+    <color name="holo_blue_ripple">#FFEE58</color>
+
+    <color name="holo_green_primary">#4CAF50</color>
+    <color name="holo_green_primary_dark">#2C8F30</color>
+    <color name="holo_green_accent">#6CCF70</color>
+    <color name="holo_green_ripple">#FFEE58</color>
+
+    <color name="base_primary">#697480</color>
+    <color name="base_primary_dark">#4D555E</color>
+    <color name="base_accent">#e0e0e0</color>
+    <color name="base_ripple">#FFEE58</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="shadow">#44000000</color>
+
+    <color name="background_dark">#4D555E</color>
+    <color name="background_light">#697480</color>
+    <color name="transparent">#00000000</color>
+    <color name="grey_darker">#4D555E</color>
+    <color name="grey_dark">#697480</color>
+    <color name="button_shadow_default_color">#4D555E</color>
+</resources>

@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="general_all">16dp</dimen>
+    <dimen name="general_all_half">8dp</dimen>
+    <dimen name="general_all_half_half">4dp</dimen>
+    <dimen name="general_all_half_half_more">5dp</dimen>
+    <dimen name="general_all_double">32dp</dimen>
+    <dimen name="button_corner">12dp</dimen>
+    <dimen name="general_all_more">24dp</dimen>
+    <dimen name="general_all_double_double">64dp</dimen>
+</resources>

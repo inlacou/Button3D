@@ -7,7 +7,7 @@ In your layout.xml:
 <ThreeDimensionalButton
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:theme="@style/ButtonTheme"
+        android:theme="@style/YourButtonTheme"
         app:textSize="@dimen/text_size_big"
         app:textColor="@color/colorAccent"
         app:text="Click me!"/>
@@ -17,7 +17,7 @@ There is no `wrap_content` for width. It was `wrap_content` always, or `match_pa
 
 In styles.xml:
 ```xml
-<style name="ButtonTheme">
+<style name="YourButtonTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">#222222</item>

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <declare-styleable name="ThreeDimensionalButton_match">
+    <declare-styleable name="ThreeDimensionalButton">
         <attr name="textSize" format="dimension|reference"/>
         <attr name="textColor" format="reference"/>
         <attr name="text" format="string"/>
+        <attr name="drawableLeft" format="reference"/>
+        <attr name="drawableRight" format="reference"/>
+        <attr name="drawableTop" format="reference"/>
+        <attr name="drawableBottom" format="reference"/>
+        <attr name="drawablePadding" format="dimension"/>
     </declare-styleable>
 </resources>

@@ -8,15 +8,20 @@
         android:id="@+id/holder"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
-    <TextView
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/holder"
-        android:layout_centerHorizontal="true"
-        android:textSize="30sp"
-        android:gravity="center_horizontal|center_vertical"
-        android:textColor="@color/threedimensionalbutton_common_pallete_white_full"
-        android:background="@drawable/threedimensionalbutton_button_grey_dark_match"
-        android:text="Ir a la pregunta"/>
+	<RelativeLayout
+		android:id="@+id/button_background"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/threedimensionalbutton_button_grey_dark"
+		android:layout_below="@+id/holder">
+		<TextView
+			android:id="@+id/textview"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:textSize="30sp"
+			android:gravity="center_horizontal|center_vertical"
+			android:textColor="@color/threedimensionalbutton_common_pallete_white_full"
+			android:text="Ir a la pregunta"/>
+	</RelativeLayout>
 </RelativeLayout>

@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,16 +22,19 @@ import android.widget.TextView;
 public abstract class ThreeDimensionalButton extends FrameLayout {
 
 	private static final String DEBUG_TAG = ThreeDimensionalButton.class.getName();
-	private int position;
 	private Callbacks mCallback;
 	private Context context;
 
 	private View surfaceLayout, holder;
-	private TextView button;
+	private TextView textView;
+	private View background;
 	private Rect rect;
+
+	private Drawable drawableLeft, drawableTop, drawableRight, drawableBottom;
 
 	public ThreeDimensionalButton(Context context) {
 		super(context);
+		this.context = context;
 		init();
 	}
 
@@ -64,49 +70,96 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 
 	public void initialize(View view) {
 		surfaceLayout = view.findViewById(R.id.view_base_layout_surface);
-		button = (TextView) view.findViewById(R.id.button);
+		textView = (TextView) view.findViewById(R.id.textview);
+		background = view.findViewById(R.id.button_background);
 		holder = view.findViewById(R.id.holder);
+		/*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			button.setCompoundDrawables(
+					drawableLeft!=-1 ? getResources().getDrawable(drawableLeft, context.getTheme()) : null,
+					drawableTop!=-1 ? getResources().getDrawable(drawableTop, context.getTheme()) : null,
+					drawableRight!=-1 ? getResources().getDrawable(drawableRight, context.getTheme()) : null,
+					drawableBottom!=-1 ? getResources().getDrawable(drawableBottom, context.getTheme()) : null);
+		}else{
+			button.setCompoundDrawables(
+					drawableLeft!=-1 ? getResources().getDrawable(drawableLeft) : null,
+					drawableTop!=-1 ? getResources().getDrawable(drawableTop) : null,
+					drawableRight!=-1 ? getResources().getDrawable(drawableRight) : null,
+					drawableBottom!=-1 ? getResources().getDrawable(drawableBottom) : null);
+		}*/
+	}
+
+	public void setDrawableLeft(Drawable drawable){
+		Log.d(DEBUG_TAG, "setDrawableLeft");
+		drawableLeft = drawable;
+		textView.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
+	}
+
+	public void setDrawableRight(Drawable drawable){
+		Log.d(DEBUG_TAG, "setDrawableRight");
+		drawableRight = drawable;
+		textView.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
+	}
+
+	public void setDrawableBottom(Drawable drawable){
+		Log.d(DEBUG_TAG, "setDrawableBottom");
+		drawableBottom = drawable;
+		textView.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
+	}
+
+	public void setDrawableTop(Drawable drawable){
+		Log.d(DEBUG_TAG, "setDrawableTop");
+		drawableTop = drawable;
+		textView.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
+	}
+
+	public void setDrawablePadding(float drawablePadding){
+		textView.setCompoundDrawablePadding((int) drawablePadding);
 	}
 
 	protected void readAttrs(AttributeSet attrs) {
-		TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ThreeDimensionalButton_match, 0, 0);
+		TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ThreeDimensionalButton, 0, 0);
 		try {
 			//(ta.getInt(R.styleable.ThreeDimensionalButton_color, limit));
-			if(ta.hasValue(R.styleable.ThreeDimensionalButton_match_text)) setText(ta.getString(R.styleable.ThreeDimensionalButton_match_text));
-			if(ta.hasValue(R.styleable.ThreeDimensionalButton_match_textColor)) setTextColor(ta.getColorStateList(R.styleable.ThreeDimensionalButton_match_textColor));
-			if(ta.hasValue(R.styleable.ThreeDimensionalButton_match_textSize)) setTextSize(ta.getDimensionPixelSize(R.styleable.ThreeDimensionalButton_match_textSize, -1));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_text)) setText(ta.getString(R.styleable.ThreeDimensionalButton_text));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_textColor)) setTextColor(ta.getColorStateList(R.styleable.ThreeDimensionalButton_textColor));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_textSize)) setTextSize(ta.getDimensionPixelSize(R.styleable.ThreeDimensionalButton_textSize, -1));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableLeft)) setDrawableLeft(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableLeft));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableRight)) setDrawableRight(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableRight));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableBottom)) setDrawableBottom(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableBottom));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableTop)) setDrawableTop(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableTop));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawablePadding)) setDrawablePadding(ta.getDimension(R.styleable.ThreeDimensionalButton_drawablePadding, 0f));
 		} finally {
 			ta.recycle();
 		}
 	}
 
 	private void setTextSize(float size) {
-		if(size>0) button.setTextSize(ViewUtils.pixelsToSp(context, size));
+		if(size>0) textView.setTextSize(ViewUtils.pixelsToSp(context, size));
 	}
 
 	private void setTextColor(ColorStateList color) {
-		button.setTextColor(color);
+		textView.setTextColor(color);
 	}
 
 	private void setText(String string) {
-		if(string!=null && !string.isEmpty()) button.setText(string);
+		if(string!=null && !string.isEmpty()) textView.setText(string);
 	}
 
 	public void populate() {
 	}
 
 	public void setOnClickListener(OnClickListener onClickListener){
-		button.setOnClickListener(onClickListener);
+		background.setOnClickListener(onClickListener);
 	}
 
 	private void setListeners() {
-		button.setOnClickListener(new OnClickListener() {
+		background.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if(mCallback!=null) mCallback.onSurfaceClick();
 			}
 		});
-		button.setOnTouchListener(new OnTouchListener() {
+		background.setOnTouchListener(new OnTouchListener() {
 			boolean inside, outside;
 
 			@Override
@@ -140,7 +193,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 				paramsSpacer.height = (int) (8 * scale + 0.5f);
 				holder.setLayoutParams(paramsSpacer);
 				rect = new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
-				button.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark);
+				background.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark);
 			}
 
 			private void onExit(View view, MotionEvent motionEvent) {
@@ -153,10 +206,10 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 				RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) holder.getLayoutParams();
 				params2.height = (0);
 				holder.setLayoutParams(params2);
-				button.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark_shadowed);
+				background.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark_shadowed);
 			}
 		});
-		button.requestLayout();
+		background.requestLayout();
 	}
 
 	public void inAnimation(){

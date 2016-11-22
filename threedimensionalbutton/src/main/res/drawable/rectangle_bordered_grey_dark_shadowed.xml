@@ -3,23 +3,23 @@
     <!-- Bottom Shadow -->
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/button_corner"/>
+            <corners android:radius="@dimen/threedimensionalbutton_button_corner"/>
             <solid android:color="?attr/colorPrimaryDark" />
             <padding
-                android:bottom="@dimen/general_all_half"
+                android:bottom="@dimen/threedimensionalbutton_general_all_half"
                 />
         </shape>
     </item>
     <!-- Top color -->
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/button_corner"/>
+            <corners android:radius="@dimen/threedimensionalbutton_button_corner"/>
             <solid android:color="?attr/colorPrimary" />
             <padding
-                android:top="@dimen/general_all"
-                android:bottom="@dimen/general_all"
-                android:left="@dimen/general_all_double"
-                android:right="@dimen/general_all_double"
+                android:top="@dimen/threedimensionalbutton_general_all"
+                android:bottom="@dimen/threedimensionalbutton_general_all"
+                android:left="@dimen/threedimensionalbutton_general_all_double"
+                android:right="@dimen/threedimensionalbutton_general_all_double"
                 />
         </shape>
     </item>

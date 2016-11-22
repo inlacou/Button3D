@@ -2,15 +2,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/view_base_layout_surface"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <View
         android:id="@+id/holder"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignRight="@+id/button"
         android:layout_height="0dp"/>
     <TextView
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/holder"
         android:layout_centerHorizontal="true"

@@ -106,6 +106,10 @@ public class ThreeDimensionalButton_match extends FrameLayout {
 	public void populate() {
 	}
 
+	public void setOnClickListener(OnClickListener onClickListener){
+		button.setOnClickListener(onClickListener);
+	}
+
 	private void setListeners() {
 		button.setOnClickListener(new OnClickListener() {
 			@Override

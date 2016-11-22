@@ -13,6 +13,7 @@
     android:orientation="vertical"
     tools:context="libraries.inlacou.com.button3d.MainActivity">
     <libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton_match
+	    android:id="@+id/match"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/ButtonTheme"
@@ -20,6 +21,7 @@
         app:textColor="@color/colorAccent"
         app:text="Click me!"/>
     <libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton_wrap
+	    android:id="@+id/wrap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/ButtonTheme"

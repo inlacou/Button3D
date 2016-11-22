@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <declare-styleable name="ThreeDimensionalButton">
+    <declare-styleable name="ThreeDimensionalButton_match">
         <attr name="textSize" format="dimension|reference"/>
         <attr name="textColor" format="reference"/>
         <attr name="text" format="string"/>

@@ -16,9 +16,9 @@ import android.widget.TextView;
 /**
  * Created by inlacoubyv on (6/11/15) 13/09/2016.
  */
-public class ThreeDimensionalButton2 extends FrameLayout {
+public class ThreeDimensionalButton_match extends FrameLayout {
 
-	private static final String DEBUG_TAG = ThreeDimensionalButton2.class.getName();
+	private static final String DEBUG_TAG = ThreeDimensionalButton_match.class.getName();
 	private int position;
 	private Callbacks mCallback;
 	private Context context;
@@ -27,26 +27,26 @@ public class ThreeDimensionalButton2 extends FrameLayout {
 	private TextView button;
 	private Rect rect;
 
-	public ThreeDimensionalButton2(Context context) {
+	public ThreeDimensionalButton_match(Context context) {
 		super(context);
 		init();
 	}
 
-	public ThreeDimensionalButton2(Context context, Callbacks callbacks) {
+	public ThreeDimensionalButton_match(Context context, Callbacks callbacks) {
 		super(context);
 		this.context = context;
 		mCallback = callbacks;
 		init();
 	}
 
-	public ThreeDimensionalButton2(Context context, AttributeSet attrs) {
+	public ThreeDimensionalButton_match(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.context = context;
 		init();
 		readAttrs(attrs);
 	}
 
-	public ThreeDimensionalButton2(Context context, AttributeSet attrs, int defStyleAttr) {
+	public ThreeDimensionalButton_match(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		this.context = context;
 		init();
@@ -75,17 +75,17 @@ public class ThreeDimensionalButton2 extends FrameLayout {
 	}
 
 	private void initialize() {
-		View rootView = inflate(context, R.layout.view_button_3d, this);
+		View rootView = inflate(context, R.layout.view_button_3d_match, this);
 		initialize(rootView);
 	}
 
 	private void readAttrs(AttributeSet attrs) {
-		TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ThreeDimensionalButton, 0, 0);
+		TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ThreeDimensionalButton_match, 0, 0);
 		try {
 			//(ta.getInt(R.styleable.ThreeDimensionalButton_color, limit));
-			if(ta.hasValue(R.styleable.ThreeDimensionalButton_text)) setText(ta.getString(R.styleable.ThreeDimensionalButton_text));
-			if(ta.hasValue(R.styleable.ThreeDimensionalButton_textColor)) setTextColor(ta.getColorStateList(R.styleable.ThreeDimensionalButton_textColor));
-			if(ta.hasValue(R.styleable.ThreeDimensionalButton_textSize)) setTextSize(ta.getDimensionPixelSize(R.styleable.ThreeDimensionalButton_textSize, -1));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_match_text)) setText(ta.getString(R.styleable.ThreeDimensionalButton_match_text));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_match_textColor)) setTextColor(ta.getColorStateList(R.styleable.ThreeDimensionalButton_match_textColor));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_match_textSize)) setTextSize(ta.getDimensionPixelSize(R.styleable.ThreeDimensionalButton_match_textSize, -1));
 		} finally {
 			ta.recycle();
 		}
@@ -147,7 +147,7 @@ public class ThreeDimensionalButton2 extends FrameLayout {
 				paramsSpacer.height = (int) (8 * scale + 0.5f);
 				holder.setLayoutParams(paramsSpacer);
 				rect = new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
-				button.setBackgroundResource(R.drawable.rectangle_bordered_grey_dark);
+				button.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark);
 			}
 
 			private void onExit(View view, MotionEvent motionEvent) {
@@ -160,7 +160,7 @@ public class ThreeDimensionalButton2 extends FrameLayout {
 				RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) holder.getLayoutParams();
 				params2.height = (0);
 				holder.setLayoutParams(params2);
-				button.setBackgroundResource(R.drawable.rectangle_bordered_grey_dark_shadowed);
+				button.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark_shadowed);
 			}
 		});
 		button.requestLayout();

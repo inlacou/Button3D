@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+	android:id="@+id/scroll"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,9 +29,9 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:theme="@style/ButtonTheme"
-			app:textSize="@dimen/text_size_big"
+			app:textSize="24sp"
 			app:textColor="@color/colorAccent"
-			app:text="Click me!"/>
+			app:text="gGpPqQ!"/>
 		<libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton_wrap
 			android:id="@+id/wrap2"
 			android:layout_width="wrap_content"
@@ -89,7 +90,8 @@
 			android:layout_height="wrap_content"
 			android:theme="@style/ButtonTheme"
 			app:textSize="@dimen/text_size_big"
+			app:enabled="false"
 			app:textColor="@color/colorAccent"
-			app:text="Click me!"/>
+			app:text="I am disabled"/>
 	</LinearLayout>
 </ScrollView>

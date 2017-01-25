@@ -5,7 +5,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -60,7 +59,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 
 	protected void init(){
 		getData();
-		setListeners();
+		setListeners(true);
 	}
 
 	public void getData(){
@@ -128,6 +127,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableBottom)) setDrawableBottom(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableBottom));
 			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableTop)) setDrawableTop(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableTop));
 			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawablePadding)) setDrawablePadding(ta.getDimension(R.styleable.ThreeDimensionalButton_drawablePadding, 0f));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_enabled)) setEnabled(ta.getBoolean(R.styleable.ThreeDimensionalButton_enabled, true));
 		} finally {
 			ta.recycle();
 		}
@@ -152,19 +152,25 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 		background.setOnClickListener(onClickListener);
 	}
 
-	private void setListeners() {
-		background.setOnClickListener(new OnClickListener() {
+	@Override
+	public void setEnabled(boolean enabled) {
+		super.setEnabled(enabled);
+		setListeners(enabled);
+	}
+
+	private void setListeners(boolean enabled) {
+		background.setOnClickListener(enabled?new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(mCallback!=null) mCallback.onSurfaceClick();
+
 			}
-		});
-		background.setOnTouchListener(new OnTouchListener() {
+		}:null);
+		background.setOnTouchListener(enabled?new OnTouchListener() {
 			boolean inside, outside;
 
 			@Override
 			public boolean onTouch(View view, MotionEvent motionEvent) {
-				//Log.d(DEBUG_TAG, view.getX() + ", " + view.getY() + " | " + motionEvent.getRawX() + ", " + motionEvent.getRawY());
+				Log.d(DEBUG_TAG+".onTouch", view.getX() + ", " + view.getY() + " | " + motionEvent.getRawX() + ", " + motionEvent.getRawY());
 				if(motionEvent.getAction()==MotionEvent.ACTION_DOWN) {
 					onEnter(view, motionEvent);
 				} else if(motionEvent.getAction()==MotionEvent.ACTION_UP) {
@@ -182,8 +188,10 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 			}
 
 			private void onEnter(View view, MotionEvent motionEvent) {
+				Log.d(DEBUG_TAG+".onEnter", view.getX() + ", " + view.getY() + " | " + motionEvent.getRawX() + ", " + motionEvent.getRawY());
 				if(!inside){
 					inside = true;
+					if(mCallback!=null) mCallback.onKeyDown(ThreeDimensionalButton.this);
 					outside = false;
 				}else{
 					return;
@@ -197,8 +205,10 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 			}
 
 			private void onExit(View view, MotionEvent motionEvent) {
+				Log.d(DEBUG_TAG+".onExit", view.getX() + ", " + view.getY() + " | " + motionEvent.getRawX() + ", " + motionEvent.getRawY());
 				if(!outside){
 					outside = true;
+					if(mCallback!=null) mCallback.onKeyUp(ThreeDimensionalButton.this);
 					inside = false;
 				}else{
 					return;
@@ -208,7 +218,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 				holder.setLayoutParams(params2);
 				background.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark_shadowed);
 			}
-		});
+		}:null);
 		background.requestLayout();
 	}
 
@@ -239,7 +249,8 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	}
 
 	public interface Callbacks {
-		void onSurfaceClick();
+		void onKeyUp(ThreeDimensionalButton button);
+		void onKeyDown(ThreeDimensionalButton button);
 		void onDelete();
 	}
 

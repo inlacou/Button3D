@@ -3,12 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Button3D.iml" filepath="$PROJECT_DIR$/Button3D.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Button3d.iml" filepath="$PROJECT_DIR$/Button3d.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/button3d_library/button3d_library.iml" filepath="$PROJECT_DIR$/button3d_library/button3d_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/button3d_library/button3d_library.iml" filepath="$PROJECT_DIR$/button3d_library/button3d_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/threedimensionalbutton/threedimensionalbutton.iml" filepath="$PROJECT_DIR$/threedimensionalbutton/threedimensionalbutton.iml" />
       <module fileurl="file://$PROJECT_DIR$/threedimensionalbutton/threedimensionalbutton.iml" filepath="$PROJECT_DIR$/threedimensionalbutton/threedimensionalbutton.iml" />
     </modules>
   </component>

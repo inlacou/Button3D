@@ -30,6 +30,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	private Rect rect;
 
 	private Drawable drawableLeft, drawableTop, drawableRight, drawableBottom;
+	private OnClickListener listener;
 
 	public ThreeDimensionalButton(Context context) {
 		super(context);
@@ -149,7 +150,9 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	}
 
 	public void setOnClickListener(OnClickListener onClickListener){
+		Log.d(DEBUG_TAG+".setOnClickListener", "setOnClickListener");
 		background.setOnClickListener(onClickListener);
+		listener = onClickListener;
 	}
 
 	@Override
@@ -159,12 +162,12 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	}
 
 	private void setListeners(boolean enabled) {
-		background.setOnClickListener(enabled?new OnClickListener() {
+		background.setOnClickListener(enabled?(listener!=null?listener:new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
 			}
-		}:null);
+		}):null);
 		background.setOnTouchListener(enabled?new OnTouchListener() {
 			boolean inside, outside;
 
@@ -190,10 +193,12 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 			private void onEnter(View view, MotionEvent motionEvent) {
 				Log.d(DEBUG_TAG+".onEnter", view.getX() + ", " + view.getY() + " | " + motionEvent.getRawX() + ", " + motionEvent.getRawY());
 				if(!inside){
+					Log.d(DEBUG_TAG+".onEnter", "inside: " + inside);
 					inside = true;
 					if(mCallback!=null) mCallback.onKeyDown(ThreeDimensionalButton.this);
 					outside = false;
 				}else{
+					Log.d(DEBUG_TAG+".onEnter", "inside: " + inside);
 					return;
 				}
 				final float scale = getContext().getResources().getDisplayMetrics().density;

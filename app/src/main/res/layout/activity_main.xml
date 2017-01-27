@@ -67,7 +67,7 @@
 			android:theme="@style/ButtonTheme"
 			app:textSize="@dimen/text_size_big"
 			app:textColor="@color/colorAccent"
-			app:text="Click me!"/>
+			app:text="Click me! Butterknife"/>
 		<libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton_match
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

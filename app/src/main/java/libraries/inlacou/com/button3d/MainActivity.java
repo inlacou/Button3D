@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import butterknife.OnClick;
 import libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
 		wrap3.setDrawableRight(getResources().getDrawable(R.drawable.documentacion_section, this.getTheme()));
 
 		wrap4.setDrawablePadding(getResources().getDimension(R.dimen.threedimensionalbutton_general_all));
+	}
+
+	@OnClick(R.id.wrap5)
+	public void onWrap5ButtonClick(){
+		Toast.makeText(MainActivity.this, "WRAP5", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

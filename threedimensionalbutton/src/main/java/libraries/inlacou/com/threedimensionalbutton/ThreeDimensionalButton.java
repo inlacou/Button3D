@@ -161,6 +161,11 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 		setListeners(enabled);
 	}
 
+	@Override
+	public boolean callOnClick() {
+		return background.callOnClick();
+	}
+
 	private void setListeners(boolean enabled) {
 		background.setOnClickListener(enabled?(listener!=null?listener:new OnClickListener() {
 			@Override

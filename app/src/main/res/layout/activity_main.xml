@@ -69,6 +69,7 @@
 			app:textColor="@color/colorAccent"
 			app:text="Click me! Butterknife"/>
 		<libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton_match
+			android:id="@+id/wrap6"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			app:drawablePadding="@dimen/threedimensionalbutton_general_all"
@@ -76,7 +77,7 @@
 			android:theme="@style/ButtonTheme"
 			app:textSize="@dimen/text_size_big"
 			app:textColor="@color/colorAccent"
-			app:text="Click me!"/>
+			app:text="Click me! call match"/>
 		<libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton_match
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

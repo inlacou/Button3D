@@ -14,7 +14,7 @@ import libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton;
 public class MainActivity extends AppCompatActivity {
 
 	private static final String DEBUG_TAG = MainActivity.class.getName();
-	ThreeDimensionalButton match, wrap, wrap3, wrap4;
+	ThreeDimensionalButton match, wrap, wrap3, wrap4, wrap6;
 	private ThreeDimensionalButton currentButton;
 	private ScrollView scrollview;
 
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 		wrap = (ThreeDimensionalButton) findViewById(R.id.wrap);
 		wrap3 = (ThreeDimensionalButton) findViewById(R.id.wrap3);
 		wrap4 = (ThreeDimensionalButton) findViewById(R.id.wrap4);
+		wrap6 = (ThreeDimensionalButton) findViewById(R.id.wrap6);
 
 		match.setCallback(new ThreeDimensionalButton.Callbacks() {
 			@Override
@@ -76,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
 		wrap3.setDrawableRight(getResources().getDrawable(R.drawable.documentacion_section, this.getTheme()));
 
 		wrap4.setDrawablePadding(getResources().getDimension(R.dimen.threedimensionalbutton_general_all));
+
+		wrap6.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Toast.makeText(MainActivity.this, "WRAP6", Toast.LENGTH_SHORT).show();
+				match.callOnClick();
+			}
+		});
 	}
 
 	@OnClick(R.id.wrap5)

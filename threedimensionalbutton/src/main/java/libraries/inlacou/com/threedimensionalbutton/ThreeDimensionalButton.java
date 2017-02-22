@@ -134,15 +134,15 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 		}
 	}
 
-	private void setTextSize(float size) {
+	public void setTextSize(float size) {
 		if(size>0) textView.setTextSize(ViewUtils.pixelsToSp(context, size));
 	}
 
-	private void setTextColor(ColorStateList color) {
+	public void setTextColor(ColorStateList color) {
 		textView.setTextColor(color);
 	}
 
-	private void setText(String string) {
+	public void setText(String string) {
 		if(string!=null && !string.isEmpty()) textView.setText(string);
 	}
 

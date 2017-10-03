@@ -2,13 +2,13 @@
 <resources>
     <declare-styleable name="ThreeDimensionalButton">
         <attr name="textSize" format="dimension|reference"/>
-        <attr name="textColor" format="reference"/>
-        <attr name="text" format="string"/>
+        <attr name="textColor" format="color|reference"/>
+        <attr name="text" format="string|reference"/>
         <attr name="drawableLeft" format="reference"/>
         <attr name="drawableRight" format="reference"/>
         <attr name="drawableTop" format="reference"/>
         <attr name="drawableBottom" format="reference"/>
-        <attr name="drawablePadding" format="dimension"/>
+        <attr name="drawablePadding" format="dimension|reference"/>
         <attr name="enabled" format="boolean"/>
     </declare-styleable>
 </resources>

@@ -11,7 +11,7 @@
     <style name="ButtonTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#222222</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

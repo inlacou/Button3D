@@ -88,6 +88,10 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 		}*/
 	}
 
+	public void setBackground(){
+
+	}
+
 	public void setDrawableLeft(Drawable drawable){
 		Log.d(DEBUG_TAG, "setDrawableLeft");
 		drawableLeft = drawable;
@@ -163,7 +167,11 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 
 	@Override
 	public boolean callOnClick() {
-		return background.callOnClick();
+		if(listener!=null) {
+			listener.onClick(background);
+			return true;
+		}
+		return false;
 	}
 
 	private void setListeners(boolean enabled) {

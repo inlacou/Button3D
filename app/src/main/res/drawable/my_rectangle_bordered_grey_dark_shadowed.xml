@@ -4,7 +4,7 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/threedimensionalbutton_button_corner"/>
-            <solid android:color="#888" />
+            <solid android:color="#F0F" />
             <padding
                 android:bottom="@dimen/threedimensionalbutton_general_all_half"
                 />
@@ -14,7 +14,7 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/threedimensionalbutton_button_corner"/>
-            <solid android:color="#ccc" />
+            <solid android:color="#FAF" />
             <padding
                 android:top="@dimen/threedimensionalbutton_general_all"
                 android:bottom="@dimen/threedimensionalbutton_general_all"

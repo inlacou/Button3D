@@ -31,7 +31,9 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 
 	private Drawable drawableLeft, drawableTop, drawableRight, drawableBottom;
 	private OnClickListener listener;
-
+	private int pressedDrawable = R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark;
+	private int normalDrawable = R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark_shadowed;
+	
 	public ThreeDimensionalButton(Context context) {
 		super(context);
 		this.context = context;
@@ -68,6 +70,14 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 		holder = view.findViewById(R.id.holder);
 	}
 
+	public void setBackgroundPressedDrawable(int resourceId){
+		pressedDrawable = resourceId;
+	}
+	
+	public void setBackgroundNormalDrawable(int resourceId){
+		normalDrawable = resourceId;
+	}
+	
 	public void setDrawableLeft(Drawable drawable){
 		Log.d(DEBUG_TAG, "setDrawableLeft");
 		drawableLeft = drawable;
@@ -119,6 +129,10 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	}
 
 	public void setTextColor(ColorStateList color) {
+		textView.setTextColor(color);
+	}
+
+	public void setTextColor(int color) {
 		textView.setTextColor(color);
 	}
 
@@ -195,7 +209,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 				paramsSpacer.height = (int) (8 * scale + 0.5f);
 				holder.setLayoutParams(paramsSpacer);
 				rect = new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
-				background.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark);
+				background.setBackgroundResource(pressedDrawable);
 			}
 
 			private void onExit(View view, MotionEvent motionEvent) {
@@ -210,7 +224,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 				RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) holder.getLayoutParams();
 				params2.height = (0);
 				holder.setLayoutParams(params2);
-				background.setBackgroundResource(R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark_shadowed);
+				background.setBackgroundResource(normalDrawable);
 			}
 		}:null);
 		background.requestLayout();

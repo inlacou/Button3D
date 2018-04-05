@@ -4,7 +4,7 @@
         <shape xmlns:android="http://schemas.android.com/apk/res/android"
                android:shape="rectangle">
             <corners android:radius="@dimen/threedimensionalbutton_button_corner"/>
-            <solid android:color="#ccc" />
+            <solid android:color="#FAF" />
             <padding
                 android:top="@dimen/threedimensionalbutton_general_all"
                 android:bottom="@dimen/threedimensionalbutton_general_all"

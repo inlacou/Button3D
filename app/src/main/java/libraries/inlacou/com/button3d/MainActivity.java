@@ -1,5 +1,6 @@
 package libraries.inlacou.com.button3d;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ import libraries.inlacou.com.threedimensionalbutton.ThreeDimensionalButton;
 public class MainActivity extends AppCompatActivity {
 
 	private static final String DEBUG_TAG = MainActivity.class.getName();
-	ThreeDimensionalButton match, wrap, wrap3, wrap4, wrap6;
+	ThreeDimensionalButton match, wrap, wrap3, wrap4, wrap6, wrap9;
 	private ThreeDimensionalButton currentButton;
 	
 	@Override
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 		wrap3 = findViewById(R.id.wrap3);
 		wrap4 = findViewById(R.id.wrap4);
 		wrap6 = findViewById(R.id.wrap6);
+		wrap9 = findViewById(R.id.wrap9);
 
 		match.setCallback(new ThreeDimensionalButton.Callbacks() {
 			@Override
@@ -85,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
 				match.callOnClick();
 			}
 		});
+		
+		wrap9.setBackgroundNormalDrawable(R.drawable.my_rectangle_bordered_grey_dark_shadowed);
+		wrap9.setBackgroundPressedDrawable(R.drawable.my_rectangle_bordered_grey_dark);
+		wrap9.setTextColor(Color.parseColor("#FFFFFF"));
 	}
 
 	@OnClick(R.id.wrap5)

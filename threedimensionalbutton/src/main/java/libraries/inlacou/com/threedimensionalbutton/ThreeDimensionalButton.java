@@ -24,7 +24,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	private Callbacks mCallback;
 	private Context context;
 
-	private View surfaceLayout, holder;
+	private View holder;
 	private TextView textView;
 	private View background;
 	private Rect rect;
@@ -59,37 +59,13 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	}
 
 	protected void init(){
-		getData();
 		setListeners(true);
 	}
 
-	public void getData(){
-		if(mCallback!=null) {
-		}
-	}
-
 	public void initialize(View view) {
-		surfaceLayout = view.findViewById(R.id.view_base_layout_surface);
-		textView = (TextView) view.findViewById(R.id.textview);
+		textView = view.findViewById(R.id.textview);
 		background = view.findViewById(R.id.button_background);
 		holder = view.findViewById(R.id.holder);
-		/*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			button.setCompoundDrawables(
-					drawableLeft!=-1 ? getResources().getDrawable(drawableLeft, context.getTheme()) : null,
-					drawableTop!=-1 ? getResources().getDrawable(drawableTop, context.getTheme()) : null,
-					drawableRight!=-1 ? getResources().getDrawable(drawableRight, context.getTheme()) : null,
-					drawableBottom!=-1 ? getResources().getDrawable(drawableBottom, context.getTheme()) : null);
-		}else{
-			button.setCompoundDrawables(
-					drawableLeft!=-1 ? getResources().getDrawable(drawableLeft) : null,
-					drawableTop!=-1 ? getResources().getDrawable(drawableTop) : null,
-					drawableRight!=-1 ? getResources().getDrawable(drawableRight) : null,
-					drawableBottom!=-1 ? getResources().getDrawable(drawableBottom) : null);
-		}*/
-	}
-
-	public void setBackground(){
-
 	}
 
 	public void setDrawableLeft(Drawable drawable){

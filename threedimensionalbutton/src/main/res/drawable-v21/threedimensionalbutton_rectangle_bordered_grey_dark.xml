@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Bottom Shadow -->
     <item>
-        <shape android:shape="rectangle">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+               android:shape="rectangle">
             <corners android:radius="@dimen/threedimensionalbutton_button_corner"/>
-            <solid android:color="#0a0" />
-            <padding
-                android:bottom="@dimen/threedimensionalbutton_general_all_half"
-                />
-        </shape>
-    </item>
-    <!-- Top color -->
-    <item>
-        <shape android:shape="rectangle">
-            <corners android:radius="@dimen/threedimensionalbutton_button_corner"/>
-            <solid android:color="#0f0" />
+            <solid android:color="?attr/colorPrimary" />
             <padding
                 android:top="@dimen/threedimensionalbutton_general_all"
                 android:bottom="@dimen/threedimensionalbutton_general_all"

@@ -1,5 +1,6 @@
 package libraries.inlacou.com.button3d;
 
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,19 +17,18 @@ public class MainActivity extends AppCompatActivity {
 	private static final String DEBUG_TAG = MainActivity.class.getName();
 	ThreeDimensionalButton match, wrap, wrap3, wrap4, wrap6;
 	private ThreeDimensionalButton currentButton;
-	private ScrollView scrollview;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		scrollview = (ScrollView) findViewById(R.id.scroll);
-		match = (ThreeDimensionalButton) findViewById(R.id.match);
-		wrap = (ThreeDimensionalButton) findViewById(R.id.wrap);
-		wrap3 = (ThreeDimensionalButton) findViewById(R.id.wrap3);
-		wrap4 = (ThreeDimensionalButton) findViewById(R.id.wrap4);
-		wrap6 = (ThreeDimensionalButton) findViewById(R.id.wrap6);
+		
+		ScrollView scrollview = findViewById(R.id.scroll);
+		match = findViewById(R.id.match);
+		wrap = findViewById(R.id.wrap);
+		wrap3 = findViewById(R.id.wrap3);
+		wrap4 = findViewById(R.id.wrap4);
+		wrap6 = findViewById(R.id.wrap6);
 
 		match.setCallback(new ThreeDimensionalButton.Callbacks() {
 			@Override
@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity {
 			public void onKeyDown(ThreeDimensionalButton button) {
 				Log.d(DEBUG_TAG, "onKeyDown");
 				currentButton = button;
-			}
-
-			@Override
-			public void onDelete() {
-
 			}
 		});
 
@@ -74,9 +69,13 @@ public class MainActivity extends AppCompatActivity {
 				Toast.makeText(MainActivity.this, "WRAP", Toast.LENGTH_SHORT).show();
 			}
 		});
-
-		wrap3.setDrawableRight(getResources().getDrawable(R.drawable.documentacion_section, this.getTheme()));
-
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			wrap3.setDrawableRight(getResources().getDrawable(R.drawable.documentacion_section, this.getTheme()));
+		}else{
+			wrap3.setDrawableRight(getResources().getDrawable(R.drawable.documentacion_section));
+		}
+		
 		wrap4.setDrawablePadding(getResources().getDimension(R.dimen.threedimensionalbutton_general_all));
 
 		wrap6.setOnClickListener(new View.OnClickListener() {

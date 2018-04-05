@@ -240,36 +240,9 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 		background.requestLayout();
 	}
 
-	public void inAnimation(){
-		Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
-		surfaceLayout.startAnimation(animation);
-	}
-
-	public void outAnimation(){
-		Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.fade_out);
-		surfaceLayout.startAnimation(animation);
-		animation.setAnimationListener(new Animation.AnimationListener() {
-			@Override
-			public void onAnimationStart(Animation animation) {
-
-			}
-
-			@Override
-			public void onAnimationEnd(Animation animation) {
-				mCallback.onDelete();
-			}
-
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-
-			}
-		});
-	}
-
 	public interface Callbacks {
 		void onKeyUp(ThreeDimensionalButton button);
 		void onKeyDown(ThreeDimensionalButton button);
-		void onDelete();
 	}
 
 }

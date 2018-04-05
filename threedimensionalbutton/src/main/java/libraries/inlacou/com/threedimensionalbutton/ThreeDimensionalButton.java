@@ -72,10 +72,12 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 
 	public void setBackgroundPressedDrawable(int resourceId){
 		pressedDrawable = resourceId;
+		populate();
 	}
 	
 	public void setBackgroundNormalDrawable(int resourceId){
 		normalDrawable = resourceId;
+		populate();
 	}
 	
 	public void setDrawableLeft(Drawable drawable){
@@ -118,6 +120,8 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableBottom)) setDrawableBottom(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableBottom));
 			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawableTop)) setDrawableTop(ta.getDrawable(R.styleable.ThreeDimensionalButton_drawableTop));
 			if(ta.hasValue(R.styleable.ThreeDimensionalButton_drawablePadding)) setDrawablePadding(ta.getDimension(R.styleable.ThreeDimensionalButton_drawablePadding, 0f));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_backgroundNormal)) setBackgroundNormalDrawable(ta.getResourceId(R.styleable.ThreeDimensionalButton_backgroundNormal, R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark_shadowed));
+			if(ta.hasValue(R.styleable.ThreeDimensionalButton_backgroundPressed)) setBackgroundPressedDrawable(ta.getResourceId(R.styleable.ThreeDimensionalButton_backgroundPressed, R.drawable.threedimensionalbutton_rectangle_bordered_grey_dark));
 			if(ta.hasValue(R.styleable.ThreeDimensionalButton_enabled)) setEnabled(ta.getBoolean(R.styleable.ThreeDimensionalButton_enabled, true));
 		} finally {
 			ta.recycle();
@@ -141,6 +145,7 @@ public abstract class ThreeDimensionalButton extends FrameLayout {
 	}
 
 	public void populate() {
+		background.setBackgroundResource(normalDrawable);
 	}
 
 	public void setOnClickListener(OnClickListener onClickListener){

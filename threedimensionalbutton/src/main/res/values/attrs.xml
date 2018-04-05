@@ -9,6 +9,8 @@
         <attr name="drawableTop" format="reference"/>
         <attr name="drawableBottom" format="reference"/>
         <attr name="drawablePadding" format="dimension|reference"/>
+        <attr name="backgroundNormal" format="reference"/>
+        <attr name="backgroundPressed" format="reference"/>
         <attr name="enabled" format="boolean"/>
     </declare-styleable>
 </resources>
